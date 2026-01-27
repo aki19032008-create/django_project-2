@@ -1,12 +1,57 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Start Attendance</title>
+    <meta charset="UTF-8">
+    <title>Take Attendance</title>
+    <link rel="stylesheet" href="{% static 'attendance/css/style.css' %}">
+    <style>
+        body {
+            background: #f4f6f9;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .camera-box {
+            margin-top: 40px;
+        }
+        video {
+            width: 480px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Start Attendance</h1>
-    <p>Camera will start here.</p>
 
-    <a href="/">⬅ Back to Home</a>
+<h1>📷 Take Attendance</h1>
+<p>Camera will start automatically</p>
+
+<div class="camera-box">
+    <video id="video" autoplay></video>
+</div>
+
+<br>
+<a href="/">⬅ Back to Home</a>
+
+<script>
+    const video = document.getElementById('video');
+
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+                video.srcObject = stream;
+            })
+            .catch(function (error) {
+                alert("Camera access denied or not available");
+                console.error(error);
+            });
+    } else {
+        alert("Camera not supported in this browser");
+    }
+</script>
+
 </body>
 </html>
