@@ -1,25 +1,41 @@
-{% extends 'attendance/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Face Recognition Attendance</title>
+    <link rel="stylesheet" href="{% static 'attendance_css/style.css' %}">
+</head>
+<body>
 
-{% block title %}Home{% endblock %}
-
-{% block content %}
-<h1 class="title">Face Recognition Attendance System</h1>
-<p class="subtitle">Smart • Secure • Automated Attendance</p>
-
-<div class="card-container">
-    <a href="/register/" class="card">
-        <h3>Register Student</h3>
-        <p>Add new student details</p>
-    </a>
-
-    <a href="/start/" class="card">
-        <h3>Take Attendance</h3>
-        <p>Mark attendance using camera</p>
-    </a>
-
-    <a href="/attendance/" class="card">
-        <h3>Attendance Records</h3>
-        <p>View attendance history</p>
-    </a>
+<div class="header">
+    <h1>Face Recognition Attendance</h1>
+    <p>AI · FACE DETECTION · CAMERA</p>
 </div>
-{% endblock %}
+
+<div class="home-container">
+
+    <div class="home-card">
+        <div class="icon-circle">👤</div>
+        <h3>Register Student</h3>
+        <p>Add new student face data securely</p>
+        <a href="{% url 'register' %}">Go</a>
+    </div>
+
+    <div class="home-card">
+        <div class="icon-circle">📷</div>
+        <h3>Take Attendance</h3>
+        <p>Mark attendance using live camera scan</p>
+        <a href="{% url 'start' %}">Go</a>
+    </div>
+
+    <div class="home-card">
+        <div class="icon-circle">📊</div>
+        <h3>Attendance</h3>
+        <p>View and manage attendance history</p>
+        <a href="{% url 'attendance' %}">Go</a>
+    </div>
+
+</div>
+
+</body>
+</html>

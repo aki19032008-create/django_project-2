@@ -3,25 +3,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Attendance System{% endblock %}</title>
+    <title>Face Recognition Attendance System</title>
 
-    <link rel="stylesheet" href="{% static 'attendance_css/style.css' %}">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'attendance/css/style.css' %}">
 </head>
 <body>
 
-    <nav class="navbar">
-        <h2>Face Recognition Attendance</h2>
-        <div>
-            <a href="/">Home</a>
-            <a href="/register/">Register</a>
-            <a href="/start/">Take Attendance</a>
-            <a href="/attendance/">Records</a>
-        </div>
+<header>
+    <h1>Face Recognition Attendance</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/register/">Register</a>
+        <a href="/start/">Take Attendance</a>
+        <a href="/attendance/">Records</a>
     </nav>
+</header>
 
-    <main class="content">
-        {% block content %}{% endblock %}
-    </main>
+<main>
+    {% block content %}{% endblock %}
+</main>
 
 </body>
 </html>
