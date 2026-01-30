@@ -1,39 +1,132 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Face Recognition Attendance</title>
-    <link rel="stylesheet" href="{% static 'attendance_css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            font-size: 22px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 22px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: white;
+            font-size: 13px;
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
 
-<div class="header">
-    <h1>Face Recognition Attendance</h1>
-    <p>AI · FACE DETECTION · CAMERA</p>
-</div>
+<div class="container">
 
-<div class="home-container">
+    <header>
+        <h1>Face Recognition Attendance</h1>
+        <p>AI • Face Detection • Live Camera</p>
+    </header>
 
-    <div class="home-card">
-        <div class="icon-circle">👤</div>
-        <h3>Register Student</h3>
-        <p>Add new student face data securely</p>
-        <a href="{% url 'register' %}">Go</a>
+    <div class="card-grid">
+
+        <div class="card">
+            <div class="icon">👤</div>
+            <h3>Register Student</h3>
+            <p>Add new student face data securely</p>
+            <a href="{% url 'register' %}">Go</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">📷</div>
+            <h3>Take Attendance</h3>
+            <p>Mark attendance using live camera scan</p>
+            <a href="{% url 'start' %}">Go</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">📊</div>
+            <h3>Attendance Records</h3>
+            <p>View and manage attendance history</p>
+            <a href="{% url 'attendance' %}">Go</a>
+        </div>
+
     </div>
 
-    <div class="home-card">
-        <div class="icon-circle">📷</div>
-        <h3>Take Attendance</h3>
-        <p>Mark attendance using live camera scan</p>
-        <a href="{% url 'start' %}">Go</a>
-    </div>
-
-    <div class="home-card">
-        <div class="icon-circle">📊</div>
-        <h3>Attendance</h3>
-        <p>View and manage attendance history</p>
-        <a href="{% url 'attendance' %}">Go</a>
-    </div>
+    <footer>
+        © 2026 Face Recognition Attendance System | College Project
+    </footer>
 
 </div>
 
